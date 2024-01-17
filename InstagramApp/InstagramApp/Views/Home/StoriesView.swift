@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct StoriesView: View {
+    
+    let data = (1...5).map({"man\($0)"})
+    
     var body: some View {
         
         ScrollView(.horizontal,showsIndicators: false) {
             
             HStack {
-                ForEach(0...10, id: \.self) { num in
-                    StoryView(imageName: "lion")
+                ForEach(data, id: \.self) { imageName in
+                    StoryView(imageName: imageName)
                 }
                 
                 
@@ -32,6 +35,7 @@ struct StoryView: View {
         
         Image(imageName)
             .resizable()
+            .aspectRatio(contentMode: .fill)
             .frame(width: 90,height: 90,alignment: .center)
             .background(Color.blue)
             .cornerRadius(45)
