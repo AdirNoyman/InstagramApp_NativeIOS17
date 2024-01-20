@@ -21,7 +21,7 @@ struct StoriesView: View {
                 }
                 
                 
-            }
+            }.padding(.leading,15)
             
         }
         
